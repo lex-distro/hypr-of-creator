@@ -1,0 +1,22 @@
+# Yeni satır karakterini kapatarak her şeyi tek satırda tutar
+add_newline = true
+
+# Pipes ╰─ ╭─
+# Powerline symbols                                     
+# Wedges 🭧🭒 🭣🭧🭓
+# Random noise 🬖🬥🬔🬗
+# Cool stuff 󰜥   
+
+# İstemin sırasını belirler (Sadece dizin ve karakter gösterilir)
+format = """$directory$character"""
+
+# Dizin ayarları
+[directory]
+truncation_length = 3
+style = "bold cyan"
+
+# Karakter (Ok) ayarları
+[character]
+success_symbol = "[ ]() "
+error_symbol = "[ ](bold red) "
+
