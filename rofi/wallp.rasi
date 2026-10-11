@@ -1,0 +1,189 @@
+/* Rofi config - monochrome + JetBrainsMono Nerd Font
+   Matches kitty/waybar/mako: bg #111111, fg #dddddd */
+
+configuration {
+  modes: "drun,run,window,ssh";
+  show-icons: true;
+  icon-theme: "Papirus-Dark";
+  drun-display-format: "{name}";
+  display-drun: " 󰀻  Apps ";
+  display-run: "   Run ";
+  display-window: " 󰖲  Windows ";
+  display-ssh: " 󰣀  SSH ";
+  font: "JetBrainsMono Nerd Font Mono 12";
+  location: 0;
+  yoffset: 0;
+  xoffset: 0;
+  fixed-num-lines: true;
+  matching: "fuzzy";
+  sort: true;
+  sorting-method: "fzf";
+  case-sensitive: false;
+  cycle: true;
+  sidebar-mode: false;
+  hover-select: true;
+  eh: 1;
+  auto-select: false;
+  parse-hosts: true;
+  parse-known-hosts: true;
+  combi-modes: "window,drun,run";
+  window-format: "{w} · {c} · {t}";
+}
+
+* {
+  bg:       #111111F2;
+  bg-alt:   #1a1a1aF2;
+  bg-sel:   #dddddd;
+  fg:       #dddddd;
+  fg-dim:   #9a9a9a;
+  fg-sel:   #111111;
+  border:   transparent;
+  accent:   #ffffff;
+  font:     "JetBrainsMono Nerd Font Mono 12";
+
+  /* Kill rofi default (solarized light) colors completely */
+  background-color: transparent;
+  background: @bg;
+  foreground: @fg;
+  border-color: @border;
+  separatorcolor: @border;
+  scrollbarcolor: @border;
+
+  normal-background: transparent;
+  normal-foreground: @fg-dim;
+  alternate-normal-background: transparent;
+  alternate-normal-foreground: @fg-dim;
+  selected-normal-background: @bg-sel;
+  selected-normal-foreground: @fg-sel;
+
+  urgent-background: transparent;
+  urgent-foreground: @fg;
+  alternate-urgent-background: transparent;
+  alternate-urgent-foreground: @fg;
+  selected-urgent-background: @bg-sel;
+  selected-urgent-foreground: @fg-sel;
+
+  active-background: transparent;
+  active-foreground: @fg;
+  alternate-active-background: transparent;
+  alternate-active-foreground: @fg;
+  selected-active-background: @bg-sel;
+  selected-active-foreground: @fg-sel;
+
+  /* Legacy vars some default themes pull in */
+  lightbg: @bg;
+  lightfg: @bg-sel;
+  red: @fg;
+  blue: @fg;
+
+  spacing: 0;
+}
+
+window {
+  background-color: @bg;
+  border: 2px;
+  border-color: @border;
+  border-radius: 10px;
+  width: 640px;
+  location: center;
+  anchor: center;
+  x-offset: 0;
+  y-offset: -10%;
+  padding: 5px;
+}
+
+mainbox {
+  background-color: transparent;
+  children: [ inputbar, listview ];
+  spacing: 0;
+  padding: 12px;
+}
+
+inputbar {
+  background-color: transparent;
+  text-color: @fg;
+  border: 0px 0px 0px 0px;
+  border-color: @border;
+  border-radius: 10px;
+  children: [ prompt, entry ];
+  spacing: 8px;
+  padding: 10px 12px;
+  margin: 0px 0px 12px 0px;
+}
+
+prompt {
+  background-color: transparent;
+  text-color: @fg-dim;
+}
+
+entry {
+  background-color: transparent;
+  text-color: @fg;
+  placeholder: "Search...";
+  placeholder-color: @fg-dim;
+}
+
+listview {
+  background-color: transparent;
+  columns: 1;
+  lines: 8;
+  spacing: 4px;
+  cycle: true;
+  dynamic: true;
+  layout: vertical;
+  scrollbar: false;
+}
+
+scrollbar {
+  background-color: transparent;
+  handle-color: @border;
+  handle-width: 4px;
+  border: 0px;
+  border-radius: 0px;
+}
+
+element {
+  background-color: transparent;
+  text-color: @fg-dim;
+  border: 0px;
+  border-radius: 0px;
+  padding: 8px 12px;
+  orientation: horizontal;
+  spacing: 10px;
+}
+
+element-icon {
+  background-color: transparent;
+  size: 80px;
+}
+
+element-text {
+  background-color: transparent;
+  text-color: inherit;
+  highlight: bold #ffffff;
+  vertical-align: 0.5;
+}
+
+/* Every state explicitly monochrome - no defaults leak through */
+element normal.normal,
+element alternate.normal,
+element normal.urgent,
+element alternate.urgent,
+element normal.active,
+element alternate.active {
+  background-color: transparent;
+  text-color: @fg-dim;
+  border: 0px;
+  border-radius: 6px;
+}
+
+element selected,
+element selected.normal,
+element selected.urgent,
+element selected.active,
+element alternate.selected {
+  background-color: @bg-sel;
+  text-color: @fg-sel;
+  border: 0px;
+  border-radius: 6px;
+}

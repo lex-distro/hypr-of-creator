@@ -1,0 +1,2 @@
+  #!/usr/bin/env bash
+  swaybg -i "/home/waybird/Pictures/Wallpapers/monochrome/dio.jpg" -m fill
